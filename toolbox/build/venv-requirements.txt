@@ -1,5 +1,5 @@
 # runtime
-ansible>=2.9.1,<2.10
+ansible>=4.5.0,<4.6
 openstacksdk
 
 # test
