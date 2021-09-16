@@ -15,7 +15,7 @@ DOCUMENTATION = '''
 module: export_user
 short_description: Export OpenStack Identity User
 extends_documentation_fragment: openstack
-version_added: "2.9"
+version_added: "2.9.0"
 author: "OpenStack tenant migration tools (@os-migrate)"
 description:
   - "Export OpenStack Identity User definition into an OS-Migrate YAML"

@@ -16,7 +16,7 @@ module: validate_resource_files
 
 short_description: Import OpenStack network
 
-version_added: "2.9"
+version_added: "2.9.0"
 
 author: "OpenStack tenant migration tools (@os-migrate)"
 

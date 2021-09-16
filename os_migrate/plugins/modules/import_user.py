@@ -15,7 +15,7 @@ DOCUMENTATION = '''
 module: import_user
 short_description: Import OpenStack Identity User
 extends_documentation_fragment: openstack
-version_added: "2.9"
+version_added: "2.9.0"
 author: "OpenStack tenant migration tools (@os-migrate)"
 description:
   - "Import OpenStack Identity User from an OS-Migrate YAML structure"

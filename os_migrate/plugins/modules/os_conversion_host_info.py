@@ -18,7 +18,7 @@ short_description: Get information about an OpenStack conversion host instance
 
 extends_documentation_fragment: openstack
 
-version_added: "2.9"
+version_added: "2.9.0"
 
 author: "OpenStack tenant migration tools (@os-migrate)"
 

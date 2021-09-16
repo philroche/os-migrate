@@ -18,7 +18,7 @@ short_description: Export OpenStack instance information
 
 extends_documentation_fragment: openstack
 
-version_added: "2.9"
+version_added: "2.9.0"
 
 author: "OpenStack tenant migration tools (@os-migrate)"
 
