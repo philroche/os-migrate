@@ -102,6 +102,7 @@ from ansible_collections.os_migrate.os_migrate.plugins.module_utils import serve
 
 def run_module():
     argument_spec = openstack_full_argument_spec(
+        auth=dict(type='dict', no_log=True, required=True),
         data=dict(type='dict', required=True),
         dst_filters=dict(type='dict', required=False, default={}),
     )

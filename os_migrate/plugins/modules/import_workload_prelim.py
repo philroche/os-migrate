@@ -195,6 +195,7 @@ import os
 
 def run_module():
     argument_spec = openstack_full_argument_spec(
+        auth=dict(type='dict', no_log=True, required=True),
         dst_filters=dict(type='dict', required=False, default={}),
         src_conversion_host=dict(type='dict', required=True),
         data=dict(type='dict', required=True),

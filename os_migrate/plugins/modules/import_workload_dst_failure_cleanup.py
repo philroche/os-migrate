@@ -237,6 +237,7 @@ class OpenStackDstFailureCleanup(OpenStackHostBase):
 
 def run_module():
     argument_spec = openstack_full_argument_spec(
+        auth=dict(type='dict', no_log=True, required=True),
         data=dict(type='dict', required=True),
         conversion_host=dict(type='dict', required=True),
         ssh_key_path=dict(type='str', required=True),

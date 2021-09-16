@@ -523,6 +523,7 @@ class OpenStackSourceHost(OpenStackHostBase):
 
 def run_module():
     argument_spec = openstack_full_argument_spec(
+        auth=dict(type='dict', no_log=True, required=True),
         data=dict(type='dict', required=True),
         boot_volume_prefix=dict(type='str', default=None),
         conversion_host=dict(type='dict', required=True),

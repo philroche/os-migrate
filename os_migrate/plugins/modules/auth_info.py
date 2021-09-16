@@ -88,7 +88,9 @@ except ImportError:
 
 
 def run_module():
-    argument_spec = openstack_full_argument_spec()
+    argument_spec = openstack_full_argument_spec(
+        auth=dict(type='dict', no_log=True, required=True),
+    )
     # TODO: check the del
     # del argument_spec['cloud']
 

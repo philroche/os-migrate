@@ -93,6 +93,7 @@ from ansible_collections.os_migrate.os_migrate.plugins.module_utils \
 
 def run_module():
     argument_spec = openstack_full_argument_spec(
+        auth=dict(type='dict', no_log=True, required=True),
         path=dict(type='str', required=True),
         name=dict(type='str', required=True),
     )
