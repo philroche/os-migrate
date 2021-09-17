@@ -527,7 +527,7 @@ def run_module():
         data=dict(type='dict', required=True),
         boot_volume_prefix=dict(type='str', default=None),
         conversion_host=dict(type='dict', required=True),
-        ssh_key_path=dict(type='str', required=True),
+        ssh_key_path=dict(type='str', required=True, no_log=True),
         ssh_user=dict(type='str', required=True),
         src_conversion_host_address=dict(type='str', default=None),
         state_file=dict(type='str', default=None),

@@ -240,7 +240,7 @@ def run_module():
         auth=dict(type='dict', no_log=True, required=True),
         data=dict(type='dict', required=True),
         conversion_host=dict(type='dict', required=True),
-        ssh_key_path=dict(type='str', required=True),
+        ssh_key_path=dict(type='str', required=True, no_log=True),
         ssh_user=dict(type='str', required=True),
         transfer_uuid=dict(type='str', required=True),
         volume_map=dict(type='dict', required=True),
