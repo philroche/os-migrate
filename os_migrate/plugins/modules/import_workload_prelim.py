@@ -64,7 +64,7 @@ options:
   log_dir:
     description:
       - Directory for storing log and state files.
-    required: true
+    required: false
     type: str
   availability_zone:
     description:
