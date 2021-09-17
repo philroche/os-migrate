@@ -84,12 +84,16 @@ openstack_conversion_host:
     contains:
         address:
             description: IP (v4) address of the specified instance
+            type: str
         name:
             description: Name of the specified instance
+            type: str
         id:
             description: ID of the specified instance
+            type: str
         status:
             description: Current status of the specified instance (ACTIVE, SHUTOFF, etc.)
+            type: str
 '''
 
 from ansible.module_utils.basic import AnsibleModule
