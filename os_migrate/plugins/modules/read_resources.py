@@ -55,11 +55,11 @@ resources:
         params:
             description: Resource parameters important for import.
             returned: success
-            type: complex
+            type: dict
         info:
             description: Additional resource information, not needed for import.
             returned: success
-            type: complex
+            type: dict
 '''
 
 from ansible.module_utils.basic import AnsibleModule
