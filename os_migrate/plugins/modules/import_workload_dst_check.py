@@ -59,7 +59,7 @@ options:
   dst_filters:
     description:
       - Options for filtering the migration idempotence lookup, e.g. by project.
-    required: true
+    required: false
     type: dict
   cloud:
     description:

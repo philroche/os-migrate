@@ -34,7 +34,7 @@ options:
   filters:
     description:
       - Options for filtering the host, e.g. by project.
-    required: true
+    required: false
     type: dict
   auth:
     description:

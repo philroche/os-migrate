@@ -29,7 +29,7 @@ options:
   filters:
     description:
       - Options for filtering the Security Group info.
-    required: true
+    required: false
     type: dict
   availability_zone:
     description:

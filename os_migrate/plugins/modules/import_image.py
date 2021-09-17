@@ -49,7 +49,7 @@ options:
   filters:
     description:
       - Options for filtering existing resources to be looked up, e.g. by project.
-    required: true
+    required: false
     type: dict
   blob_path:
     description:
