@@ -30,6 +30,7 @@ options:
       - Resources YAML files to read.
     required: true
     type: list
+    elements: str
 '''
 
 EXAMPLES = '''
@@ -66,7 +67,7 @@ from ansible_collections.os_migrate.os_migrate.plugins.module_utils import valid
 
 def run_module():
     module_args = dict(
-        paths=dict(type='list', required=True),
+        paths=dict(type='list', required=True, elements='str'),
     )
 
     result = dict(
