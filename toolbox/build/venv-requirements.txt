@@ -3,7 +3,7 @@ ansible>=4.5.0,<4.6
 openstacksdk
 
 # test
-ansible-lint==4.1.0
+ansible-lint==4.3.7
 bashate>=2.0.0
 flake8==3.7.7
 openstackclient>=0.5.5
