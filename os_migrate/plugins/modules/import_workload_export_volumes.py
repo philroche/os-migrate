@@ -368,9 +368,8 @@ class OpenStackSourceHost(OpenStackHostBase):
                                   self.ser_server.params()['volumes']))
         if data_volume_ids != scanned_volume_ids:
             message = (
-                "The scanned set of volumes on instance '{0}' is not the same "
-                "as in the exported data. Scanned: {1}. In data: {2}."
-                .format(self.source_instance_id, scanned_volume_ids, data_volume_ids)
+                f"The scanned set of volumes on instance '{self.source_instance_id}' is not the same "
+                f"as in the exported data. Scanned: {scanned_volume_ids}. In data: {data_volume_ids}."
             )
             raise exc.InconsistentState(message)
 
@@ -392,13 +391,13 @@ class OpenStackSourceHost(OpenStackHostBase):
             self.log.info('Boot-from-volume instance, creating boot volume snapshot')
             root_snapshot = self.conn.create_volume_snapshot(
                 force=True, wait=True, volume_id=volume_id,
-                name='{0}{1}'.format(self.boot_volume_prefix, volume_id),
+                name=f'{self.boot_volume_prefix}{volume_id}',
                 timeout=self.timeout)
 
             # Create a new volume from the snapshot
             self.log.info('Creating new volume from boot volume snapshot')
             root_volume_copy = self.conn.create_volume(
-                wait=True, name='{0}{1}'.format(self.boot_volume_prefix, volume_id),
+                wait=True, name=f'{self.boot_volume_prefix}{volume_id}',
                 snapshot_id=root_snapshot.id, size=root_snapshot.size,
                 timeout=self.timeout)
 
@@ -408,7 +407,7 @@ class OpenStackSourceHost(OpenStackHostBase):
         elif sourcevm.image and self.ser_server.migration_params()['boot_disk_copy']:
             self.log.info('Image-based instance, boot_disk_copy enabled: creating snapshot')
             image = self.conn.compute.create_server_image(
-                name='{0}{1}'.format(self.boot_volume_prefix, sourcevm.name),
+                name=f'{self.boot_volume_prefix}{sourcevm.name}',
                 server=sourcevm.id,
                 wait=True,
                 timeout=self.timeout)
