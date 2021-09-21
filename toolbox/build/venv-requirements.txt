@@ -8,6 +8,9 @@ bashate>=2.0.0
 flake8==3.7.7
 openstackclient>=0.5.5
 pylint>=2.4.0
+pytest
+mock
+pytest-mock
 pytest-xdist>=1.30.0
 pycodestyle>=2.5.0
 voluptuous>=0.11.7
