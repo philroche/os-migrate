@@ -1,0 +1,6 @@
+os_migrate_projects_filter:
+  - regex: .*
+os_migrate_quotas_services_filter:
+  - regex: .*
+os_migrate_quotas_filter:
+  - regex: .*

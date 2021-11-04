@@ -1,0 +1,34 @@
+- name: scan available quotas for project {{ export_project['name'] }} ({{ export_project['id'] }})
+  openstack.cloud.quota:
+    auth: "{{ os_migrate_src_auth }}"
+    auth_type: "{{ os_migrate_src_auth_type|default(omit) }}"
+    region_name: "{{ os_migrate_src_region_name|default(omit) }}"
+    validate_certs: "{{ os_migrate_src_validate_certs|default(omit) }}"
+    ca_cert: "{{ os_migrate_src_ca_cert|default(omit) }}"
+    client_cert: "{{ os_migrate_src_client_cert|default(omit) }}"
+    client_key: "{{ os_migrate_src_client_key|default(omit) }}"
+    name: "{{ export_project['name'] }}"
+  register: src_project_quotas_info
+
+- name: create list of quotas for service {{ export_service }} for project {{ export_project['name'] }} ({{ export_project['id'] }})
+  ansible.builtin.set_fact:
+    quotas_for_service: "{{ src_project_quotas_info.openstack_quotas.get(export_service) }}"
+
+- name: filter names of quotas to export quotas for service {{ export_service }} in project {{ export_project['name'] }} ({{ export_project['id'] }})
+  ansible.builtin.set_fact:
+    filtered_quota_names_for_service: "{{ (
+      quotas_for_service
+        | json_query('keys(@)')
+        | os_migrate.os_migrate.stringfilter(os_migrate_quotas_filter) ) }}"
+
+- name: export quota
+  os_migrate.os_migrate.export_quota:
+    path: "{{ os_migrate_data_dir }}/quotas.yml"
+    name: "{{ export_quota_name }}"
+    value: "{{ quotas_for_service.get(export_quota_name) }}"
+    service: "{{ export_service }}"
+    project_name: "{{ export_project['name'] }}"
+    project_id: "{{ export_project['id'] }}"
+  loop: "{{ filtered_quota_names_for_service }}"
+  loop_control:
+    loop_var: export_quota_name
